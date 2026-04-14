@@ -1,18 +1,24 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jakow Smirin | Portfolio</title>
+  <title>Jakow Smirin | AI Consultant & CEO</title>
   <meta name="description" content="Portfolio von Jakow Smirin - AI Consultant, AIOps Specialist und CEO des STARTPLATZ AI HUB.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #141b34;
-      --text: #e9ecf6;
-      --muted: #b6bfd8;
-      --accent: #4cc9f0;
-      --accent-2: #7b2ff7;
+      --bg: #070a13;
+      --bg-glass: rgba(18, 24, 43, 0.6);
+      --card-border: rgba(76, 201, 240, 0.2);
+      --card-hover: rgba(76, 201, 240, 0.4);
+      --text: #ffffff;
+      --text-muted: #a3b1c6;
+      --accent-1: #4cc9f0;
+      --accent-2: #7209b7;
+      --accent-3: #f72585;
     }
 
     * {
@@ -22,203 +28,494 @@
     }
 
     body {
-      font-family: "Segoe UI", Tahoma, sans-serif;
-      background: radial-gradient(circle at 20% 20%, #1a2142, var(--bg) 40%);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
       color: var(--text);
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
     }
 
+    h1, h2, h3, .tag {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Animated Background Orbs */
+    .bg-orbs {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      overflow: hidden;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: float 20s infinite ease-in-out alternate;
+    }
+    .orb-1 {
+      width: 40vw; height: 40vw;
+      background: radial-gradient(circle, var(--accent-2) 0%, transparent 70%);
+      top: -10%; left: -10%;
+    }
+    .orb-2 {
+      width: 35vw; height: 35vw;
+      background: radial-gradient(circle, var(--accent-1) 0%, transparent 70%);
+      bottom: -10%; right: -5%;
+      animation-delay: -5s;
+    }
+    .orb-3 {
+      width: 30vw; height: 30vw;
+      background: radial-gradient(circle, var(--accent-3) 0%, transparent 70%);
+      top: 40%; left: 40%;
+      opacity: 0.3;
+      animation-duration: 25s;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-50px) scale(1.1); }
+    }
+
+    /* Container & Layout */
     .container {
-      width: min(1100px, 92%);
+      width: min(1200px, 90%);
       margin: 0 auto;
-    }
-
-    header {
-      padding: 4rem 0 2rem;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .tag {
-      display: inline-block;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.04em;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.1;
-      margin-bottom: 1rem;
-    }
-
-    .lead {
-      color: var(--muted);
-      max-width: 62ch;
-      margin-bottom: 1.5rem;
-    }
-
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .btn {
-      display: inline-block;
-      text-decoration: none;
-      color: var(--text);
-      background: linear-gradient(90deg, var(--accent-2), var(--accent));
-      padding: 0.72rem 1.1rem;
-      border-radius: 0.65rem;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn.secondary {
-      background: transparent;
-      border: 1px solid #34406b;
-    }
-
-    .card {
-      background: linear-gradient(180deg, #1b2446 0%, var(--card) 100%);
-      border: 1px solid #2a3766;
-      border-radius: 1rem;
-      padding: 1.4rem;
-    }
-
-    main {
-      padding: 1.2rem 0 3rem;
+      padding: 2rem 0;
     }
 
     section {
-      margin-top: 1.2rem;
+      padding: 6rem 0;
     }
 
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.7rem;
+    /* Header / Nav */
+    header {
+      position: fixed;
+      top: 0; width: 100%;
+      z-index: 100;
+      background: rgba(7, 10, 19, 0.7);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: min(1200px, 90%);
+      margin: 0 auto;
+    }
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
     }
 
-    .grid {
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+    }
+    .hero-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
     }
-
-    ul {
-      margin-left: 1.2rem;
+    .hero-content {
+      position: relative;
     }
-
-    li + li {
-      margin-top: 0.35rem;
-    }
-
-    .small {
-      color: var(--muted);
+    .tag {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      background: rgba(76, 201, 240, 0.1);
+      border: 1px solid var(--accent-1);
+      border-radius: 50px;
+      color: var(--accent-1);
       font-size: 0.9rem;
-      margin-top: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      text-shadow: 0 0 40px rgba(255,255,255,0.1);
+    }
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
     }
 
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+      color: white;
+      box-shadow: 0 10px 20px -10px rgba(114, 9, 183, 0.5);
+      border: none;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 25px -10px rgba(114, 9, 183, 0.8);
+    }
+    .btn-secondary {
+      background: var(--bg-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: white;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-3px);
+    }
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .glass-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--card-hover);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(76, 201, 240, 0.05);
+    }
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Sections */
+    .section-header {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+      background: linear-gradient(90deg, #fff, var(--text-muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-lead {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    ul.custom-list {
+      list-style: none;
+      margin-top: 1.5rem;
+    }
+    ul.custom-list li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-muted);
+    }
+    ul.custom-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent-1);
+      font-weight: bold;
+    }
+
+    /* Profile Visual */
+    .profile-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+    .profile-img-placeholder {
+      font-size: 5rem;
+    }
+    .floating-badge {
+      position: absolute;
+      background: rgba(18, 24, 43, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      animation: float 6s infinite ease-in-out;
+    }
+    .floating-badge h4 {
+      font-size: 0.9rem;
+      font-family: 'Outfit';
+      margin-bottom: 0.2rem;
+    }
+    .floating-badge p {
+      font-size: 0.8rem;
+      color: var(--accent-1);
+    }
+    .badge-1 { top: 10%; right: -5%; }
+    .badge-2 { bottom: 15%; left: -5%; animation-delay: -3s; }
+
+    /* Footer */
     footer {
-      padding: 1.4rem 0 2rem;
-      color: var(--muted);
-      font-size: 0.92rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 4rem;
+    }
+    .footer-links {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: var(--accent-1);
     }
 
-    @media (max-width: 850px) {
-      .hero,
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    /* Scroll Reveal Classes */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .grid-2 { grid-template-columns: 1fr; }
+      .badge-1 { right: 5%; }
+      .badge-2 { left: 5%; }
+      section { padding: 4rem 0; }
+      h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
-  <header class="container">
-    <div class="hero">
-      <div>
-        <span class="tag">PORTFOLIO</span>
-        <h1>Jakow Smirin</h1>
-        <p class="lead">
-          AI Consultant, AIOps-Spezialist und Führungskraft im KI-Umfeld. Fokus auf AI-Education,
-          AI-Automation und praxisnahe KI-Integration für Unternehmen.
-        </p>
-        <div class="buttons">
-          <a class="btn" href="https://linkedin.com/in/jakow-smirin-b75373173" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
-          <a class="btn secondary" href="https://startplatz-ai-hub.de/en/" target="_blank" rel="noopener noreferrer">STARTPLATZ AI HUB</a>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Profil auf einen Blick</h2>
-        <ul>
-          <li>Rolle: CEO, STARTPLATZ AI HUB (laut öffentlicher Profile)</li>
-          <li>Standort: Düsseldorf, Deutschland</li>
-          <li>Schwerpunkte: AIOps, AI Consulting, AI Strategy</li>
-          <li>Fokus: Umsetzbare KI-Lösungen für Teams und Unternehmen</li>
-        </ul>
-      </div>
+
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <header>
+    <div class="nav-content">
+      <a href="#" class="logo">JS.</a>
+      <a href="#contact" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">Kontakt</a>
     </div>
   </header>
 
-  <main class="container">
-    <div class="grid">
-      <section class="card">
-        <h2>Über STARTPLATZ AI HUB</h2>
-        <p>
-          STARTPLATZ AI HUB positioniert sich als Community und Bildungs-Hub für Generative AI in Deutschland.
-          Angeboten werden Bootcamps, Workshops, Events und Lernpfade rund um ChatGPT, Prompting, Chatbots
-          und praxisorientierte Use Cases.
-        </p>
-      </section>
+  <main>
+    <section class="hero container">
+      <div class="hero-grid">
+        <div class="hero-content reveal active">
+          <span class="tag">Portfolio</span>
+          <h1>Empowering Business through AI</h1>
+          <p class="lead">Ich bin Jakow Smirin – AI Consultant, AIOps-Spezialist und CEO des STARTPLATZ AI HUB. Ich baue Brücken zwischen komplexen KI-Technologien und praxisnaher Unternehmensentwicklung.</p>
+          <div class="button-group">
+            <a href="https://linkedin.com/in/jakow-smirin-b75373173" target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn Profil</a>
+            <a href="https://startplatz-ai-hub.de/en/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">STARTPLATZ AI HUB</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal active" style="transition-delay: 0.2s;">
+          <div class="profile-visual">
+            <div class="profile-img-placeholder">✨</div>
+            <div class="floating-badge badge-1">
+              <div>
+                <h4>CEO</h4>
+                <p>STARTPLATZ AI HUB</p>
+              </div>
+            </div>
+            <div class="floating-badge badge-2">
+              <div>
+                <h4>Expertise</h4>
+                <p>AIOps & Automation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <section class="card">
-        <h2>Mission & Vision</h2>
-        <ul>
-          <li>Förderung von Lernen und Wachstum in Generative AI</li>
-          <li>Support für innovative Unternehmen und Startups</li>
-          <li>Aufbau eines starken AI-Ökosystems mit Community-Fokus</li>
-        </ul>
-      </section>
-    </div>
-
-    <section class="card">
-      <h2>Leistungsbereiche</h2>
-      <div class="grid">
-        <div>
-          <ul>
-            <li>AI Automation & Prozessoptimierung</li>
-            <li>Strategische AI-Beratung für Unternehmen</li>
-            <li>Workshops, Seminare und Team Enablement</li>
+    <section class="container" id="hub">
+      <div class="section-header reveal">
+        <h2>STARTPLATZ AI HUB</h2>
+        <p class="section-lead">Als CEO verantworte ich die strategische Ausrichtung und das Wachstum des führenden Hubs für Künstliche Intelligenz in Deutschland.</p>
+      </div>
+      <div class="grid-2">
+        <div class="glass-card reveal">
+          <h3>Über den Hub</h3>
+          <p style="color: var(--text-muted); margin-top: 1rem;">
+            Der STARTPLATZ AI HUB positioniert sich als zentrale Community und starker Bildungs-Hub für Generative AI. Wir formen die KI-Landschaft von morgen.
+          </p>
+          <ul class="custom-list">
+            <li>Bootcamps & Deep-Dive Workshops</li>
+            <li>Hands-on Use Cases für ChatGPT & Co.</li>
+            <li>Zertifizierte Lernpfade</li>
           </ul>
         </div>
-        <div>
-          <ul>
-            <li>Prompt Engineering & Custom GPT Use Cases</li>
-            <li>AIOps-Ansätze für produktive KI-Nutzung</li>
-            <li>Community-Building und Wissensvermittlung</li>
+        <div class="glass-card reveal" style="transition-delay: 0.2s;">
+          <h3>Mission & Vision</h3>
+          <p style="color: var(--text-muted); margin-top: 1rem;">
+            Wir befähigen Menschen und Organisationen, das volle Potenzial generativer KI sicher und profitabel zu nutzen.
+          </p>
+          <ul class="custom-list">
+            <li>Förderung von AI Knowledge & Growth</li>
+            <li>Support für innovative Startups & Corporates</li>
+            <li>Aufbau eines starken, verknüpften Ökosystems</li>
           </ul>
         </div>
       </div>
-      <p class="small">
-        Quellenbasis: Offizielle STARTPLATZ AI HUB Seiten sowie öffentlich auffindbare LinkedIn-Einträge.
-      </p>
+    </section>
+
+    <section class="container" id="services">
+      <div class="section-header reveal">
+        <h2>Leistungsbereiche</h2>
+        <p class="section-lead">Mein Fokus liegt auf greifbaren, skalierbaren und zukunftssicheren KI-Lösungen für moderne Teams.</p>
+      </div>
+      <div class="grid-3">
+        <div class="glass-card reveal">
+          <h3 style="color: var(--accent-1); margin-bottom: 1rem;">01. AI Automation</h3>
+          <p style="color: var(--text-muted);">Prozessoptimierung und Integration intelligenter Workflows, um manuelle Aufwände drastisch zu reduzieren und Effizienz zu maximieren.</p>
+        </div>
+        <div class="glass-card reveal" style="transition-delay: 0.1s;">
+          <h3 style="color: var(--accent-2); margin-bottom: 1rem;">02. Strategic Consulting</h3>
+          <p style="color: var(--text-muted);">Strategische Beratung für Unternehmen. Von der ersten Potenzialanalyse bis zur Implementierung robuster AIOps-Ansätze im Produktivbetrieb.</p>
+        </div>
+        <div class="glass-card reveal" style="transition-delay: 0.2s;">
+          <h3 style="color: var(--accent-3); margin-bottom: 1rem;">03. Team Enablement</h3>
+          <p style="color: var(--text-muted);">Inhouse Workshops, Seminare und individuelles Prompt Engineering Training – Wissensvermittlung, die direkt anwendbar ist.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container reveal" id="cta">
+      <div class="glass-card" style="text-align: center; background: linear-gradient(145deg, rgba(18,24,43,0.9), rgba(76,201,240,0.1)); padding: 4rem 2rem;">
+        <h2 style="margin-bottom: 1.5rem;">Bereit für das nächste Level?</h2>
+        <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem;">Lass uns darüber sprechen, wie Künstliche Intelligenz deine Prozesse transformieren und dein Geschäftsmodell skalieren kann.</p>
+        <a href="https://linkedin.com/in/jakow-smirin-b75373173" class="btn btn-primary" id="contact" target="_blank">Lass uns vernetzen</a>
+      </div>
     </section>
   </main>
 
-  <footer class="container">
-    <p>© 2026 Jakow Smirin Portfolio</p>
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/jakow-smirin-b75373173" target="_blank">LinkedIn</a>
+        <a href="https://startplatz-ai-hub.de/en/" target="_blank">AI Hub</a>
+      </div>
+      <p>&copy; 2026 Jakow Smirin. All rights reserved.</p>
+      <p style="font-size: 0.8rem; margin-top: 0.5rem; opacity: 0.5;">Quellenbasis: Offizielle STARTPLATZ AI HUB Seiten & LinkedIn.</p>
+    </div>
   </footer>
+
+  <script>
+    // Scroll Reveal Animation Script
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 100;
+        
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    // Trigger once on load
+    reveal();
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
