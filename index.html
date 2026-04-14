@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jakow Smirin | Portfolio</title>
+  <meta name="description" content="Portfolio von Jakow Smirin - AI Consultant, AIOps Specialist und CEO des STARTPLATZ AI HUB.">
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #141b34;
+      --text: #e9ecf6;
+      --muted: #b6bfd8;
+      --accent: #4cc9f0;
+      --accent-2: #7b2ff7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: radial-gradient(circle at 20% 20%, #1a2142, var(--bg) 40%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 4rem 0 2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      color: var(--muted);
+      max-width: 62ch;
+      margin-bottom: 1.5rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(90deg, var(--accent-2), var(--accent));
+      padding: 0.72rem 1.1rem;
+      border-radius: 0.65rem;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.secondary {
+      background: transparent;
+      border: 1px solid #34406b;
+    }
+
+    .card {
+      background: linear-gradient(180deg, #1b2446 0%, var(--card) 100%);
+      border: 1px solid #2a3766;
+      border-radius: 1rem;
+      padding: 1.4rem;
+    }
+
+    main {
+      padding: 1.2rem 0 3rem;
+    }
+
+    section {
+      margin-top: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    ul {
+      margin-left: 1.2rem;
+    }
+
+    li + li {
+      margin-top: 0.35rem;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.9rem;
+    }
+
+    footer {
+      padding: 1.4rem 0 2rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 850px) {
+      .hero,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div class="hero">
+      <div>
+        <span class="tag">PORTFOLIO</span>
+        <h1>Jakow Smirin</h1>
+        <p class="lead">
+          AI Consultant, AIOps-Spezialist und Führungskraft im KI-Umfeld. Fokus auf AI-Education,
+          AI-Automation und praxisnahe KI-Integration für Unternehmen.
+        </p>
+        <div class="buttons">
+          <a class="btn" href="https://linkedin.com/in/jakow-smirin-b75373173" target="_blank" rel="noopener noreferrer">LinkedIn Profil</a>
+          <a class="btn secondary" href="https://startplatz-ai-hub.de/en/" target="_blank" rel="noopener noreferrer">STARTPLATZ AI HUB</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Profil auf einen Blick</h2>
+        <ul>
+          <li>Rolle: CEO, STARTPLATZ AI HUB (laut öffentlicher Profile)</li>
+          <li>Standort: Düsseldorf, Deutschland</li>
+          <li>Schwerpunkte: AIOps, AI Consulting, AI Strategy</li>
+          <li>Fokus: Umsetzbare KI-Lösungen für Teams und Unternehmen</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <section class="card">
+        <h2>Über STARTPLATZ AI HUB</h2>
+        <p>
+          STARTPLATZ AI HUB positioniert sich als Community und Bildungs-Hub für Generative AI in Deutschland.
+          Angeboten werden Bootcamps, Workshops, Events und Lernpfade rund um ChatGPT, Prompting, Chatbots
+          und praxisorientierte Use Cases.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Mission & Vision</h2>
+        <ul>
+          <li>Förderung von Lernen und Wachstum in Generative AI</li>
+          <li>Support für innovative Unternehmen und Startups</li>
+          <li>Aufbau eines starken AI-Ökosystems mit Community-Fokus</li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="card">
+      <h2>Leistungsbereiche</h2>
+      <div class="grid">
+        <div>
+          <ul>
+            <li>AI Automation & Prozessoptimierung</li>
+            <li>Strategische AI-Beratung für Unternehmen</li>
+            <li>Workshops, Seminare und Team Enablement</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Prompt Engineering & Custom GPT Use Cases</li>
+            <li>AIOps-Ansätze für produktive KI-Nutzung</li>
+            <li>Community-Building und Wissensvermittlung</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small">
+        Quellenbasis: Offizielle STARTPLATZ AI HUB Seiten sowie öffentlich auffindbare LinkedIn-Einträge.
+      </p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© 2026 Jakow Smirin Portfolio</p>
+  </footer>
+</body>
+</html>
